@@ -26,11 +26,11 @@
 
 ## Запуск проекта
 
-go mod tidy
+ *`go mod tidy `
 
 Bash
 
-go run .
+ *`go run . `
 
 После запуска сервер начнет слушать входящие запросы по адресу: http://localhost:8080.
 Примеры cURL-запросов
@@ -38,32 +38,32 @@ go run .
 1. Добавление новой книги
 Bash
 
-curl -X POST http://localhost:8080/books \
+* `curl -X POST http://localhost:8080/books \
   -H "Content-Type: application/json" \
-  -d '{"title": "Преступление и наказание", "author": "Фёдор Достоевский", "isbn": "978-5-389-04922-2", "year": 1866}'
+  -d '{"title": "Преступление и наказание", "author": "Фёдор Достоевский", "isbn": "978-5-389-04922-2", "year": 1866}' `
 
 2. Получение списка всех книг
 Bash
 
-curl -X GET http://localhost:8080/books
+*`curl -X GET http://localhost:8080/books `
 
 3. Регистрация нового читателя
 Bash
 
-curl -X POST http://localhost:8080/users \
+*`curl -X POST http://localhost:8080/users \
   -H "Content-Type: application/json" \
-  -d '{"name": "Алексей Иванов", "email": "ivanov@mail.ru"}'
+  -d '{"name": "Алексей Иванов", "email": "ivanov@mail.ru"}' `
 
 4. Выдача книги читателю
 Bash
 
-curl -X POST http://localhost:8080/issues \
+* `curl -X POST http://localhost:8080/issues \
   -H "Content-Type: application/json" \
-  -d '{"user_id": "СЮДА_UUID_ПОЛЬЗОВАТЕЛЯ", "book_id": "СЮДА_UUID_КНИГИ"}'
+  -d '{"user_id": "СЮДА_UUID_ПОЛЬЗОВАТЕЛЯ", "book_id": "СЮДА_UUID_КНИГИ"}' `
 
 5. Возврат книги в библиотеку
 Bash
 
-curl -X POST http://localhost:8080/returns \
+ *`curl -X POST http://localhost:8080/returns \
   -H "Content-Type: application/json" \
-  -d '{"book_id": "СЮДА_UUID_КНИГИ"}'
+  -d '{"book_id": "СЮДА_UUID_КНИГИ"}' `
